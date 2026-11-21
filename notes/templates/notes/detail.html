@@ -1,0 +1,34 @@
+{% extends "notes/base.html" %}
+
+{% block title %}{{ note.title }}{% endblock %}
+
+{% block content %}
+
+<div class="note-detail">
+
+    <a href="{% url 'home' %}" class="back-link">
+         Back to Knowledge Vault
+    </a>
+
+    <h1>{{ note.title }}</h1>
+
+    <div class="note-content">
+        {{ note.content }}
+    </div>
+
+    <div class="note-meta flex items-center justify-between">
+    <div>
+        <p>Created: {{ note.created_at|date:"M d, Y - H:i" }}</p>
+        <p>Last updated: {{ note.updated_at|date:"M d, Y - H:i" }}</p>
+    </div>
+    <a href="edit-note"
+       class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition">
+        Edit Note
+    </a>
+</div>
+
+    
+
+</div>
+
+{% endblock %}

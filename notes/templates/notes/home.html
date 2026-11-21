@@ -1,0 +1,26 @@
+{% extends "notes/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="home-container">
+    <h1 class="home-title">Your Knowledge Vault</h1>
+
+    <div class="notes-grid">
+        {% for data in notes %}
+        <a href="{% url 'note_detail' data.pk %}">
+            <div class="post">
+                <h2>{{ data.title }}</h2>
+                <p>{{ data.content }}</p>
+            </div>
+        </a>
+        {%empty%}
+        <p>No noted found</p>
+            
+        
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
